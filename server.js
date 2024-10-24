@@ -7,16 +7,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// CORS configuration
-const corsOptions = {
-    origin: '*', // Allow all origins for simplicity
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: ['Content-Type'],
-    preflightContinue: false,
-    optionsSuccessStatus: 204
-};
-
-app.use(cors(corsOptions));
+app.use(cors()); // Enable CORS for all routes
 app.use(express.json());
 
 const apiKey = process.env.GOOGLE_API_KEY;

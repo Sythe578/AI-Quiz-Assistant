@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.query) {
-        fetch('https://automated-flibzhfgs-carl-justine-dagohoys-projects.vercel.app', { // Replace with your Vercel URL
+        fetch('https://automated-flibzhfgs-carl-justine-dagohoys-projects.vercel.app/ask', { // Replace with your Vercel URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -15,7 +15,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             console.error('Error:', error);
             sendResponse({ response: 'Error processing request' });
         });
-        return true; // Keep the message channel open for sendResponse
+        return true;
     }
 });
 
