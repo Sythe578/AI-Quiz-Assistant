@@ -16,7 +16,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-const apiKey = process.env.GOOGLE_API_KEY; // Use environment variable for API key
+const apiKey = process.env.AIzaSyB4WKfjh5WjFGzP0Sjg1Oev0Q3-z-IKouo; // Use environment variable for API key
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
