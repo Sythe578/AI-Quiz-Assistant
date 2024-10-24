@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.query) {
-        fetch('https://automated-3u7bv5mal-carl-justine-dagohoys-projects.vercel.app', {
+        fetch('https://your-vercel-deployment-url.vercel.app/ask', { // Replace with your Vercel URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -15,11 +15,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             console.error('Error:', error);
             sendResponse({ response: 'Error processing request' });
         });
-
         return true;
     }
 });
 
+// Listener for saving and navigating to the saved page
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'savePage') {
         chrome.scripting.executeScript({
@@ -33,20 +33,3 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         });
     }
 });
-
-function saveCurrentPage() {
-    const currentPage = window.location.href;
-    chrome.storage.local.set({ savedPage: currentPage }, () => {
-        alert('Page saved successfully!');
-    });
-}
-
-function goToSavedPage() {
-    chrome.storage.local.get(['savedPage'], (result) => {
-        if (result.savedPage) {
-            window.location.href = result.savedPage;
-        } else {
-            alert('No saved page found.');
-        }
-    });
-}
