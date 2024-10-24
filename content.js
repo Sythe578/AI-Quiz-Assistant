@@ -24,7 +24,7 @@ document.getElementById('goToSavedPageButton').addEventListener('click', goToSav
 // Function to send a message to the AI server and get the answer
 function getAnswerFromAI(question, choices) {
     const message = `Question: ${question}\nChoices:\n${choices.join('\n')}`;
-    return fetch('https://automated-flibzhfgs-carl-justine-dagohoys-projects.vercel.app/ask', { // Replace with your Vercel URL
+    return fetch('https://automated-3s12kks9s-carl-justine-dagohoys-projects.vercel.app/ask', { // Replace with your Vercel URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
