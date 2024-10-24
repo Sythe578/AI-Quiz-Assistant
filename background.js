@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.query) {
-        fetch('https://your-vercel-deployment-url.vercel.app/ask', { // Replace with your Vercel URL
+        fetch('https://automated-krzg8wafj-carl-justine-dagohoys-projects.vercel.app', { // Replace with your Vercel URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
