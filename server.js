@@ -12,7 +12,8 @@ const corsOptions = {
     origin: 'chrome-extension://pjodgolnihhpaeonmlgdpdnhemfabcme', // Replace this with your Chrome extension ID
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
-    optionsSuccessStatus: 204
+    optionsSuccessStatus: 204,
+    allowedHeaders: ['Content-Type']
 };
 
 app.use(cors(corsOptions));
