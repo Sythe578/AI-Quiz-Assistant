@@ -1,7 +1,6 @@
 document.getElementById("submitButton").addEventListener("click", () => {
     const query = document.getElementById("queryInput").value;
     const responseOutput = document.getElementById("responseOutput");
-
     chrome.runtime.sendMessage({ query }, (response) => {
         console.log("Received response:", response);
         if (response && response.response) {

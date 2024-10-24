@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.query) {
-        fetch('https://automated-eyuexiwi0-carl-justine-dagohoys-projects.vercel.app', { // Replace with your Vercel URL
+        fetch('https://your-vercel-deployment-url.vercel.app/ask', { // Replace with your Vercel URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -19,7 +19,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 });
 
-// Listener for saving and navigating to the saved page
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'savePage') {
         chrome.scripting.executeScript({

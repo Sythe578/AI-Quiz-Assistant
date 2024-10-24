@@ -1,11 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const dotenv = require('dotenv');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+dotenv.config();
+
 const app = express();
 const port = process.env.PORT || 3000;
 
+// CORS configuration
 const corsOptions = {
-    origin: '*', // Allow all origins for simplicity, adjust for production
+    origin: '*', // For simplicity, allow all origins. Adjust for production.
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type'],
     preflightContinue: false,
