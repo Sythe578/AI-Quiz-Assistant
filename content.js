@@ -17,14 +17,10 @@ function goToSavedPage() {
     });
 }
 
-// Add buttons to popup for saving and navigating to saved page
-document.getElementById('savePageButton').addEventListener('click', saveCurrentPage);
-document.getElementById('goToSavedPageButton').addEventListener('click', goToSavedPage);
-
 // Function to send a message to the AI server and get the answer
 function getAnswerFromAI(question, choices) {
     const message = `Question: ${question}\nChoices:\n${choices.join('\n')}`;
-    return fetch('https://automated-krzg8wafj-carl-justine-dagohoys-projects.vercel.app', { // Replace with your Vercel URL
+    return fetch('https://automated-flibzhfgs-carl-justine-dagohoys-projects.vercel.app', { // Replace with your Vercel URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

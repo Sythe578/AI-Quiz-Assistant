@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 // CORS configuration
 const corsOptions = {
-    origin: '*', // For simplicity, allow all origins. Adjust for production.
+    origin: '*', // Allow all origins for simplicity
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type'],
     preflightContinue: false,
