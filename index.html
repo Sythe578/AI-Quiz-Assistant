@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button Example</title>
+</head>
+<body>
+
+    <h3>Select Your Favorite Fruit:</h3>
+    <input type="radio" id="apple" name="fruit" value="apple">
+    <label for="apple">Apple</label><br>
+
+    <input type="radio" id="banana" name="fruit" value="banana">
+    <label for="banana">Banana</label><br>
+
+    <input type="radio" id="orange" name="fruit" value="orange">
+    <label for="orange">Orange</label><br>
+
+    <button onclick="checkRadioButton()">Check Banana</button>
+
+    <script>
+        function checkRadioButton() {
+            // Get the radio button element for Banana
+            const bananaRadio = document.getElementById('banana');
+            
+            // Set the checked property to true
+            bananaRadio.checked = true;
+        }
+    </script>
+
+</body>
+</html>
