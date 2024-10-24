@@ -1,13 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const dotenv = require('dotenv');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+
+dotenv.config(); // Load environment variables from .env file
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Configure CORS
 const corsOptions = {
-    origin: '*', // Allow all origins
+    origin: 'chrome-extension://pjodgolnihhpaeonmlgdpdnhemfabcme', // Replace this with your Chrome extension ID
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
     optionsSuccessStatus: 204
@@ -16,7 +18,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-const apiKey = process.env.AIzaSyB4WKfjh5WjFGzP0Sjg1Oev0Q3-z-IKouo; // Use environment variable for API key
+const apiKey = process.env.GOOGLE_API_KEY; // Use environment variable for API key
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
