@@ -3,28 +3,28 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-dotenv.config(); // Load environment variables from .env file
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
-    origin: 'chrome-extension://pjodgolnihhpaeonmlgdpdnhemfabcme', // Replace this with your Chrome extension ID
+    origin: '*',  // Allow all origins
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type'],
     preflightContinue: false,
-    optionsSuccessStatus: 204,
+    optionsSuccessStatus: 204
 };
 
 app.use(cors(corsOptions));
 app.use(express.json());
 
-const apiKey = process.env.GOOGLE_API_KEY; // Use environment variable for API key
+const apiKey = process.env.GOOGLE_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
     model: 'gemini-1.5-pro',
-    systemInstruction: 'Answer Only!',
+    systemInstruction: 'Answer Only!'
 });
 
 const generationConfig = {
@@ -32,7 +32,7 @@ const generationConfig = {
     topP: 0.95,
     topK: 64,
     maxOutputTokens: 8192,
-    responseMimeType: 'text/plain',
+    responseMimeType: 'text/plain'
 };
 
 app.post('/ask', async (req, res) => {
@@ -40,7 +40,7 @@ app.post('/ask', async (req, res) => {
         const message = req.body.query;
         const chatSession = await model.startChat({
             generationConfig,
-            history: [],
+            history: []
         });
 
         const result = await chatSession.sendMessage(message);
